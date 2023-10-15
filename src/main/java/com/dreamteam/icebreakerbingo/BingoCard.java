@@ -1,7 +1,9 @@
 package com.dreamteam.icebreakerbingo;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document("bingocards")
 public class BingoCard {
 
     @Id
