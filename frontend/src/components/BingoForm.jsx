@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BingoInput from './BingoInput'
 import BingoButton from './BingoButton'
+import BingoUrl from './BingoUrl'
 
 export default function BingoForm() {
   const [entries, setEntries] = useState([
@@ -13,8 +14,8 @@ export default function BingoForm() {
   
   return (
     <>
-      <form
-        className="grid grid-cols-5 gap-3"
+      <div
+        className="grid grid-cols-5 gap-3 lg:w-1/2"
       >
         {entries.map((rowData, row) => (
           rowData.map((entryData, col) => (
@@ -27,9 +28,11 @@ export default function BingoForm() {
             />
           ))
         ))}
-      </form>
+      </div>
       <BingoButton text={'Randomize'} />
       <BingoButton text={'Create Bingo Card'} />
+      <BingoUrl url="www.example.com/f8c3de3d-1fea-4d7c-a8b0-29f63c4c3454" />
+      <p>Made with 🥖🍔🍛🍝 by Dream Team at HackGT X</p>
     </>
   )
 }
