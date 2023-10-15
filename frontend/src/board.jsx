@@ -23,6 +23,15 @@ export default function Board() {
   const [cols, setCols] = useState([0, 0, 0, 0, 0]);
   const [diags, setDiags] = useState([0, 0]);
 
+  function App() {
+    useEffect(() => (
+      async function fetchData() {
+        const response = await fetch('/bingocards')
+        const text = await response.text()
+      fetchData()
+      })
+    }
+
   function incrementCount(row, col) {
     let newRows = [...rows];
     newRows[row] += 1;
