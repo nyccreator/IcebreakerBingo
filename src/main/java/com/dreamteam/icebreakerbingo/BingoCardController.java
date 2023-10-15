@@ -23,27 +23,27 @@ class BingoCardController {
 
     // Aggregate root
     // tag::get-aggregate-root[]
-    @GetMapping("/bingocards")
+    @GetMapping("/api/bingocards")
     List<BingoCard> all() {
         return repository.findAll();
     }
     // end::get-aggregate-root[]
 
-    @PostMapping("/bingocards")
+    @PostMapping("/api/bingocards")
     BingoCard newBingoCard(@RequestBody BingoCard newBingoCard) {
         return repository.save(newBingoCard);
     }
 
     // Single item
 
-    @GetMapping("/bingocards/{id}")
+    @GetMapping("/api/bingocards/{id}")
     BingoCard one(@PathVariable String id) {
 
         return repository.findById(id)
                 .orElseThrow(() -> new BingoCardNotFoundException(id));
     }
 
-    @PutMapping("/bingocards/{id}")
+    @PutMapping("/api/bingocards/{id}")
     BingoCard replaceBingoCard(@RequestBody BingoCard newBingoCard, @PathVariable String id) {
 
         return repository.findById(id)
@@ -57,7 +57,7 @@ class BingoCardController {
                 });
     }
 
-    @DeleteMapping("/bingocards/{id}")
+    @DeleteMapping("/api/bingocards/{id}")
     void deleteBingoCard(@PathVariable String id) {
         repository.deleteById(id);
     }

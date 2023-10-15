@@ -29,7 +29,7 @@ export default function Board() {
         const response = await fetch('/bingocards')
         const text = await response.text()
       fetchData()
-      })
+      }))
     }
 
   function incrementCount(row, col) {
