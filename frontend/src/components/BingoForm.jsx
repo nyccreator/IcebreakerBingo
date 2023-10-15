@@ -14,7 +14,7 @@ export default function BingoForm() {
   
   return (
     <>
-      <p>Fill out the bingo card template with icebreakers!</p>
+      <p>Fill out the bingo card template with statements about people, ex. &quot;is left-handed&quot;.</p>
       <div
         className="grid grid-cols-5 gap-3 lg:w-1/2"
       >

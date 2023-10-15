@@ -79,7 +79,7 @@ export default function BingoBoard() {
         >
           { hasBingo ? 'Bingo!' : 'Icebreaker Bingo' }
         </h1>
-        <p>Click or press the bingo card to mark a person you&apos;ve met with that characteristic.</p>
+        <p>Click the bingo card to mark a person you&apos;ve met that matches the statement.</p>
         <div
             className="grid grid-cols-5 gap-3 lg:w-1/2"
           >
