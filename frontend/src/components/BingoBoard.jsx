@@ -2,7 +2,7 @@ import { useState } from "react"
 import JSConfetti from 'js-confetti'
 
 function BingoSquare({ text, row, col, incrementCount }) {
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(false)
   
   function handleClick() {
     if (!clicked) {
@@ -75,10 +75,11 @@ export default function BingoBoard() {
         className="flex flex-col min-h-screen items-center gap-5 my-6"
       >
         <h1
-          className="text-4xl font-semibold text-center mb-3"
+          className="text-4xl font-semibold text-center"
         >
           { hasBingo ? 'Bingo!' : 'Icebreaker Bingo' }
         </h1>
+        <p>Click or press the bingo card to mark a person you&apos;ve met with that characteristic.</p>
         <div
             className="grid grid-cols-5 gap-3 lg:w-1/2"
           >
