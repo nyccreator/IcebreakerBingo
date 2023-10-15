@@ -8,7 +8,7 @@ export default function BingoForm() {
   const [entries, setEntries] = useState([
     ['', '', '', '', ''],
     ['', '', '', '', ''],
-    ['', '', 'FREE', '', ''],
+    ['', '', '', '', ''],
     ['', '', '', '', ''],
     ['', '', '', '', ''],
   ])

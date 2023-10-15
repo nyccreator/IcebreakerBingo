@@ -69,7 +69,7 @@ public class BingoCardApplication implements CommandLineRunner {
 			}
 		}
 
-		defaultBingoCard.getContents()[2][2] = "Free";
+		defaultBingoCard.getContents()[2][2] = "";
 
 		repository.save(defaultBingoCard);
 	}
