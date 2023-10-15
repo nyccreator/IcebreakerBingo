@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import JSConfetti from 'js-confetti'
+import { getOne } from "../client"
+import { useParams } from "react-router-dom"
 
 function BingoSquare({ text, row, col, incrementCount }) {
   const [clicked, setClicked] = useState(false)
@@ -23,12 +25,29 @@ function BingoSquare({ text, row, col, incrementCount }) {
 }
   
 export default function BingoBoard() {
+  const [entries, setEntries] = useState([
+    ['0,0', '0,1', '0,2', '0,3', '0,4'],
+    ['1,0', '1,1', '1,2', '1,3', '1,4'],
+    ['2,0', '2,1', 'FREE', '2,3', '2,4'],
+    ['3,0', '3,1', '3,2', '3,3', '3,4'],
+    ['4,0', '4,1', '4,2', '4,3', '4,4'],
+  ])
   const [rows, setRows] = useState([0, 0, 0, 0, 0])
   const [cols, setCols] = useState([0, 0, 0, 0, 0])
   const [diags, setDiags] = useState([0, 0])
   const [hasBingo, setHasBingo] = useState(false)
   const jsConfetti = new JSConfetti()
+  const { id } = useParams()
   
+  useEffect(() => {
+    async function fetchData() {
+      const json = await getOne(id)
+      console.log(json)
+      setEntries(json.contents)
+    }
+    fetchData()
+  }, [id])
+
   function incrementCount(row, col) {
     let newRows = [...rows]
     newRows[row] += 1
@@ -61,18 +80,10 @@ export default function BingoBoard() {
        })
       }
     }
-
-    const dummyData = [
-      ['0,0', '0,1', '0,2', '0,3', '0,4'],
-      ['1,0', '1,1', '1,2', '1,3', '1,4'],
-      ['2,0', '2,1', 'FREE', '2,3', '2,4'],
-      ['3,0', '3,1', '3,2', '3,3', '3,4'],
-      ['4,0', '4,1', '4,2', '4,3', '4,4'],
-    ]
     
     return (
       <div
-        className="flex flex-col min-h-screen items-center gap-5 my-6"
+        className="flex flex-col min-h-screen items-center text-center gap-5 my-6 p-3"
       >
         <h1
           className="text-4xl font-semibold text-center"
@@ -81,9 +92,9 @@ export default function BingoBoard() {
         </h1>
         <p>Click the bingo card to mark a person you&apos;ve met that matches the statement.</p>
         <div
-            className="grid grid-cols-5 gap-3 lg:w-1/2"
+            className="grid grid-cols-5 gap-3 lg:w-1/2 w-full"
           >
-            {dummyData.map((rowData, row) => (
+            {entries.map((rowData, row) => (
               rowData.map((entry, col) => (
                 <BingoSquare
                   key={`row-${row}-col-${col}`}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import BingoInput from './BingoInput'
 import BingoButton from './BingoButton'
 import BingoUrl from './BingoUrl'
+import { getOne, post } from '../client'
 
 export default function BingoForm() {
   const [entries, setEntries] = useState([
@@ -11,7 +12,25 @@ export default function BingoForm() {
     ['', '', '', '', ''],
     ['', '', '', '', ''],
   ])
+  const [id, setId] = useState('')
+  const [submitted, setSubmitted] = useState(false)
+
+  async function handleRandomize() {
+    const json = await getOne(0)
+    setEntries(json.contents)
+  }
   
+  async function handleSubmit() {
+    const body = {
+      contents: entries
+    }
+    console.log(JSON.stringify(body))
+    const json = await post(body)
+    console.log(json)
+    setId(json.id)
+    setSubmitted(true)
+  }
+
   return (
     <>
       <p>Fill out the bingo card template with statements about people, ex. &quot;is left-handed&quot;.</p>
@@ -30,9 +49,9 @@ export default function BingoForm() {
           ))
         ))}
       </div>
-      <BingoButton text={'Randomize'} />
-      <BingoButton text={'Create Bingo Card'} />
-      <BingoUrl id="f8c3de3d-1fea-4d7c-a8b0-29f63c4c3454" />
+      <BingoButton text={'Randomize'} handleClick={handleRandomize} />
+      <BingoButton text={'Create Bingo Card'} handleClick={handleSubmit} />
+      { submitted ? <BingoUrl id={id} /> : null }
       <p>Made with 🥖🍔🍛🍝 by Dream Team at HackGT X</p>
     </>
   )

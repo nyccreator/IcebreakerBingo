@@ -23,7 +23,7 @@ export default function BingoUrl({ id }) {
           value={`${baseUrl}/${id}`}
         />
         <button
-          className="border-slate-300 border focus:outline-0 rounded-md focus:ring-offset-2 focus:ring-2 focus:ring-slate-300 text-center shadow px-4 py-4 flex-1 mr-2"
+          className="border-slate-300 border focus:outline-0 rounded-md focus:ring-offset-2 focus:ring-2 focus:ring-slate-300 text-center shadow px-4 py-4 flex-1 mr-2 hover:bg-slate-50"
           onClick={handleClick}
         >
           <FaCopy />
