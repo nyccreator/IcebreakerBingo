@@ -20,15 +20,21 @@ class BingoCardController {
         this.repository = repository;
     }
 
+
+    // Aggregate root
+    // tag::get-aggregate-root[]
     @GetMapping("/api/bingocards")
     List<BingoCard> all() {
         return repository.findAll();
     }
+    // end::get-aggregate-root[]
 
     @PostMapping("/api/bingocards")
     BingoCard newBingoCard(@RequestBody BingoCard newBingoCard) {
         return repository.save(newBingoCard);
     }
+
+    // Single item
 
     @GetMapping("/api/bingocards/{id}")
     BingoCard one(@PathVariable String id) {

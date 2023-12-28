@@ -11,8 +11,8 @@
 	<groupId>com.dreamteam.icebreakerbingo</groupId>
 	<artifactId>hack-gt-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AccessingDataMongodbApplication</name>
-	<description>Demo project for Spring Boot</description>
+	<name>IcebreakerBingoApplication</name>
+	<description>HackGT Icebreaker Bingo Project</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
