@@ -7,10 +7,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom"
+import Landing from "./components/Landing/Landing.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "board",
     element: <App />,
   },
   {

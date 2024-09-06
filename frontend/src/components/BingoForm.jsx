@@ -33,7 +33,7 @@ export default function BingoForm() {
 
   return (
     <>
-      <p>Fill out the bingo card template with statements about people, ex. &quot;is left-handed&quot;.</p>
+      <p className={"text-pretty text-lg text-slate-800"}>Fill out the bingo card template with statements about people, ex. &quot;is left-handed&quot;.</p>
       <div
         className="grid grid-cols-5 gap-3 lg:w-1/2"
       >
@@ -49,8 +49,10 @@ export default function BingoForm() {
           ))
         ))}
       </div>
-      <BingoButton text={'Randomize'} handleClick={handleRandomize} />
-      <BingoButton text={'Create Bingo Card'} handleClick={handleSubmit} />
+        <div className={"flex flex-row justify-around w-1/3"}>
+            <BingoButton text={'Randomize'} handleClick={handleRandomize} />
+            <BingoButton text={'Create Bingo Card'} handleClick={handleSubmit} />
+        </div>
       { submitted ? <BingoUrl id={id} /> : null }
       <p>Made with 🥖🍔🍛🍝 by Dream Team at HackGT X</p>
     </>

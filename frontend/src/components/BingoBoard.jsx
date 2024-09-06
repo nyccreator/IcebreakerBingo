@@ -86,11 +86,11 @@ export default function BingoBoard() {
         className="flex flex-col min-h-screen items-center text-center gap-5 my-6 p-3"
       >
         <h1
-          className="text-4xl font-semibold text-center"
+          className="text-4xl font-bold text-center"
         >
           { hasBingo ? 'Bingo!' : 'Icebreaker Bingo' }
         </h1>
-        <p>Click the bingo card to mark a person you&apos;ve met that matches the statement.</p>
+        <p className={"text-pretty text-lg text-slate-800"}>Click the bingo card to mark a person you&apos;ve met that matches the statement.</p>
         <div
             className="grid grid-cols-5 gap-3 lg:w-1/2 w-full"
           >
